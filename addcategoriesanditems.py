@@ -17,3 +17,17 @@ DBSession = sessionmaker(bind=engine)
 # revert all of them back to the last commit by calling
 # session.rollback()
 session = DBSession()
+
+# Items for Soccer
+category1 = Category(name="Soccer")
+
+session.add(category1)
+session.commit()
+
+menuItem1 = Item(name="Shin Gaurd", description="Soccer is definitely a contact sport. Shin guards help reduce the chance of injury to the shin (tibia), the third-most likely area of the body to be injured playing soccer, according to a recent study.",
+                     category=category1)
+
+session.add(menuItem1)
+session.commit()
+
+print("added menu items!")
