@@ -35,7 +35,9 @@ def addCategory():
 
 @app.route('/catalog/<int:category_id>/edit/', methods=['GET', 'POST'])
 def editCategory(category_id):
-    return None
+    DBSession = sessionmaker(bind=engine)
+    session = DBSession()
+    editCategory = session.query(Category).filter_by(id=category_id).one()
 
 if __name__ == '__main__':
     app.debug = True
