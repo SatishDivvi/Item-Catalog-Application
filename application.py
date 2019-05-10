@@ -121,7 +121,8 @@ def editItems(category_id, item_id):
 
 @app.route('/catalog/<int:category_id>/items/<int:item_id>/delete', methods=['GET', 'POST'])
 def deleteItems(category_id, item_id):
-    return None
+    DBSession = sessionmaker(bind=engine)
+    session = DBSession()
 
 if __name__ == '__main__':
     app.debug = True
