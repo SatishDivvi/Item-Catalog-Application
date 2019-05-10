@@ -86,6 +86,15 @@ def showItems(category_id):
 def addItems(category_id):
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
+    category = session.query(Category).filter_by(id=category_id).one()
+    if request.method == 'POST':
+        newItem = Item(name=request.form['addTitle'], description=request.form['addDescription'], category_id=category_id)
+        session.add(newItem)
+        session.commit()
+        return redirect(url_for('showItems', category_id = category.id))
+    else:
+        return render_template('AddItem.html', category = category)
+
 
 if __name__ == '__main__':
     app.debug = True
