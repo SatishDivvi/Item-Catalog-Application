@@ -117,7 +117,10 @@ def editItems(category_id, item_id):
         return redirect(url_for('showItems', category_id=item.category_id))
     else:
         return render_template('edititem.html', item = item, category = category)
-            
+     
+
+@app.route('/catalog/<int:category_id>/items/<int:item_id>/delete', methods=['GET', 'POST'])
+
 
 if __name__ == '__main__':
     app.debug = True
