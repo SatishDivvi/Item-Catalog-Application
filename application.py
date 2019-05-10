@@ -9,3 +9,6 @@ app = Flask(__name__)
 
 engine = create_engine('sqlite:///catalog.db')
 Base.metadata.bind = engine
+
+@app.route('/')
+@app.route('/catalog/')
