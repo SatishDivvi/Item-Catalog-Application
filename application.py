@@ -93,7 +93,7 @@ def addItems(category_id):
         session.commit()
         return redirect(url_for('showItems', category_id = category.id))
     else:
-        return render_template('AddItem.html', category = category)
+        return render_template('addItem.html', category = category)
 
 
 if __name__ == '__main__':
