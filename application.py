@@ -48,7 +48,8 @@ def editCategory(category_id):
 
 @app.route('/catalog/<int:category_id>/delete', methods=['GET', 'POST'])
 def deleteCategory(category_id):
-    return None
+    DBSession = sessionmaker(bind=engine)
+    session = DBSession()
 
 
 if __name__ == '__main__':
