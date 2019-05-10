@@ -74,6 +74,13 @@ def deleteCategory(category_id):
 def showItems(category_id):
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
+    category = session.query(Category).filter_by(id = category_id).one()
+    try:
+        items = session.query(Item).filter_by(category_id = category_id).all()
+    except Exception:
+        items = None
+    return render_template('showItems.html', category = category, items = items)
+
 
 if __name__ == '__main__':
     app.debug = True
