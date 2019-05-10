@@ -4,6 +4,11 @@
 
     </head>
     <body>
-        
+            <ul>
+                    {% for category in categories %}
+                   <li>{{category.name}}</li>
+                   <a href="{{url_for('showCategories')}}">Go back</a>
+                   {% endfor %}
+                </ul>
     </body>
 </html>
