@@ -4,6 +4,20 @@
 
     </head>
     <body>
-        
+        <p>Edit {{item.name}} item:</p>
+        <form action="{{url_for('editItems', item_id = item.id, category_id = category.id)}}" method='POST'>
+                <label for="title">Edit Title:</label>
+                <input type="text" id="title" name="editTitle" placeholder="{{item.name}}">
+                <label for="description">Add Description:</label>
+                <input type="text" id="description" name="editDescription" placeholder="{{item.description}}">
+                <label for="category">Select Category:</label>
+                <select name="category" required>
+                    <option value="Soccer" id="category">Soccer</option>
+                    <option value="Football" id="category">Football</option>
+                    <option value="Snowboarding" id="category">Snowboarding</option>
+                    <option value="Hockey" id="category">Hockey</option>
+                  </select>
+                <button type="submit">Add</button>
+                </form>
     </body>
 </html>
