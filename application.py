@@ -97,7 +97,8 @@ def addItems(category_id):
 
 
 @app.route('/catalog/<int:category_id>/items/<int:item_id>/edit', methods=['GET', 'POST'])
-
+def editItems(category_id, item_id):
+    return None
 
 
 if __name__ == '__main__':
