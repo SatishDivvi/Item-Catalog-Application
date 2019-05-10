@@ -46,7 +46,7 @@ def editCategory(category_id):
     else:
         return render_template('editCategory.html', category = editCategory)
 
-@app.route('/catalog/<int:category_id>/delete', methods=['GET', 'POST'])
+@app.route('/catalog/<int:category_id>/delete/', methods=['GET', 'POST'])
 def deleteCategory(category_id):
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
