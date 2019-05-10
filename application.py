@@ -96,6 +96,10 @@ def addItems(category_id):
         return render_template('addItem.html', category = category)
 
 
+@app.route('/catalog/<int:category_id>/items/<int:item_id>/edit', methods=['GET', 'POST'])
+
+
+
 if __name__ == '__main__':
     app.debug = True
     app.run(host='0.0.0.0', port=5000)
