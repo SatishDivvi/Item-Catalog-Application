@@ -20,3 +20,5 @@ def showCategories():
     return render_template('categories.html', categories=categories)
 
 @app.route('/catalog/new/', methods = ['GET', 'POST'])
+def addCategory():
+    return None
