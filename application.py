@@ -82,6 +82,10 @@ def showItems(category_id):
     return render_template('showItems.html', category = category, items = items)
 
 
+@app.route('/catalog/<int:category_id>/items/new/', methods=['GET', 'POST'])
+
+
+
 if __name__ == '__main__':
     app.debug = True
     app.run(host='0.0.0.0', port=5000)
