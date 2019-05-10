@@ -100,7 +100,24 @@ def addItems(category_id):
 def editItems(category_id, item_id):
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
-
+    category = session.query(Category).filter_by(id=category_id).one()
+    item = session.query(Item).filter_by(id=item_id).one()
+    if request.method == 'POST':
+        select = request.form['category']
+        newCategory = session.query(Category).filter_by(name=select).one()
+        if newCategory.id != category.id:
+            item.category_id = newCategory.id
+            session.commit()
+        if request.form['editTitle']:
+            item.name = request.form['editTitle']
+            session.commit()
+        if request.form['editDescription']:
+            item.description = request.form['editDescription']
+            session.commit()
+        return redirect(url_for('showItems', category_id=item.category_id))
+    else:
+        return render_template('edititem.html', item = item, category = category)
+            
 
 if __name__ == '__main__':
     app.debug = True
