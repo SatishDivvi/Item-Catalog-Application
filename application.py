@@ -46,6 +46,9 @@ def editCategory(category_id):
     else:
         return render_template('editCategory.html', category = editCategory)
 
+@app.route('/catalog/<int:category_id>/delete', methods=['GET', 'POST'])
+
+
 
 if __name__ == '__main__':
     app.debug = True
