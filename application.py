@@ -34,7 +34,8 @@ def addCategory():
 
 
 @app.route('/catalog/<int:category_id>/edit/', methods=['GET', 'POST'])
-
+def editCategory(category_id):
+    return None
 
 if __name__ == '__main__':
     app.debug = True
