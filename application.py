@@ -33,6 +33,9 @@ def addCategory():
         return render_template('addCategory.html')
 
 
+@app.route('/catalog/<int:category_id>/edit/', methods=['GET', 'POST'])
+
+
 if __name__ == '__main__':
     app.debug = True
     app.run(host='0.0.0.0', port=5000)
