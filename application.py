@@ -83,8 +83,8 @@ def showItems(category_id):
 
 
 @app.route('/catalog/<int:category_id>/items/new/', methods=['GET', 'POST'])
-
-
+def addItems(category_id):
+    return None
 
 if __name__ == '__main__':
     app.debug = True
