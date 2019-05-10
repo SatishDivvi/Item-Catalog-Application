@@ -72,7 +72,8 @@ def deleteCategory(category_id):
 @app.route('/catalog/<int:category_id>/')
 @app.route('/catalog/<int:category_id>/items/')
 def showItems(category_id):
-    return None
+    DBSession = sessionmaker(bind=engine)
+    session = DBSession()
 
 if __name__ == '__main__':
     app.debug = True
