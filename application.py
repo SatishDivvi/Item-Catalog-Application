@@ -19,6 +19,16 @@ def showCategories():
     categories = session.query(Category).all()
     return render_template('categories.html', categories=categories)
 
-@app.route('/catalog/new/', methods = ['GET', 'POST'])
+
+@app.route('/catalog/new/', methods=['GET', 'POST'])
 def addCategory():
-    return None
+    DBSession = sessionmaker(bind=engine)
+    session = DBSession()
+    if request.method == 'POST':
+        newCategory = Category(name=request.form['addCategory'])
+        session.add(newCategory)
+        session.commit()
+        return redirect(url_for('showCategories'))
+    else:
+        return render_template('addCategory.html')
+
