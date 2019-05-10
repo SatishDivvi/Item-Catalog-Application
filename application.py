@@ -38,6 +38,14 @@ def editCategory(category_id):
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
     editCategory = session.query(Category).filter_by(id=category_id).one()
+    if request.method == 'POST':
+        editCategory.name = request.form['editName']
+        session.add(editCategory)
+        session.commit()
+        return redirect(url_for('showCategories'))
+    else:
+        return render_template('editCategory.html', category = editCategory)
+
 
 if __name__ == '__main__':
     app.debug = True
