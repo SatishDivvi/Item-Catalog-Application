@@ -50,6 +50,22 @@ def editCategory(category_id):
 def deleteCategory(category_id):
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
+    deleteCategory = session.query(Category).filter_by(id=category_id).first()
+    try:
+        deleteCategoryItems = session.query(Item).filter_by(catalog_id = category_id).all()
+    except Exception:
+        pass
+    if request.method == 'POST':
+        session.delete(deleteCategory)
+        session.commit()
+        try:
+            session.delete(deleteCategoryItems)
+            session.commit()
+        except Exception:
+            pass
+        return redirect(url_for('showCategories'))
+    else:
+        return render_template('deleteCategory.html', category = deleteCategory)
 
 
 if __name__ == '__main__':
