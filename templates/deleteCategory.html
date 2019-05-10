@@ -4,6 +4,9 @@
 
     </head>
     <body>
-        
+        <form action="{{url_for('deleteCategory', category_id=category.id)}}" method = 'POST'>
+            <p>Are you sure you want to delete {{category.name}} category?</p>
+            <button type="submit">Delete</button>
+        </form>
     </body>
 </html>
