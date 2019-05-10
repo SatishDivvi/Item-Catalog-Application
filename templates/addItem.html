@@ -4,6 +4,13 @@
         
     </head>
     <body>
-        
+        <h2>Add New Item for {{category.name}}</h2>
+        <form action="{{url_for('addItems', category_id = category.id)}}" method='POST'>
+            <label for="title">Add Title:</label>
+            <input type="text" id="title" name="addTitle" required>
+            <label for="description">Add Description:</label>
+            <input type="text" id="description" name="addDescription" required>
+            <label for="category">Select Category:</label>
+            <button type="submit">Add</button>
     </body>
 </html>
