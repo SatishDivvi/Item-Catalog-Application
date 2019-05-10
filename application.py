@@ -69,6 +69,9 @@ def deleteCategory(category_id):
         return render_template('deleteCategory.html', category = deleteCategory)
 
 
+@app.route('/catalog/<int:category_id>/')
+@app.route('/catalog/<int:category_id>/items/')
+
 if __name__ == '__main__':
     app.debug = True
     app.run(host='0.0.0.0', port=5000)
