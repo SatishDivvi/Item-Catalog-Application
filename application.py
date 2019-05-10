@@ -12,3 +12,8 @@ Base.metadata.bind = engine
 
 @app.route('/')
 @app.route('/catalog/')
+def showCategories():
+    DBSession = sessionmaker(bind=engine)
+    session = DBSession()
+    categories = session.query(Category).all()
+    return render_template('categories.html', categories=categories)
