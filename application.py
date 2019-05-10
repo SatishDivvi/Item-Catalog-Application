@@ -123,6 +123,14 @@ def editItems(category_id, item_id):
 def deleteItems(category_id, item_id):
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
+    item = session.query(Item).filter_by(id=item_id, category_id=category_id).one()
+    if request.method == 'POST':
+        session.delete(item)
+        session.commit()
+        return redirect(url_for('showItems', category_id = category_id))
+    else:
+        return render_template('deleteItem.html', category_id = category_id, item = item)
+
 
 if __name__ == '__main__':
     app.debug = True
