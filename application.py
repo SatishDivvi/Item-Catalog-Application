@@ -71,6 +71,8 @@ def deleteCategory(category_id):
 
 @app.route('/catalog/<int:category_id>/')
 @app.route('/catalog/<int:category_id>/items/')
+def showItems(category_id):
+    return None
 
 if __name__ == '__main__':
     app.debug = True
