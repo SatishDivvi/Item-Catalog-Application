@@ -6,7 +6,7 @@
     <body>
         <form action="{{url_for('editCategory', category_id=category.id)}}" method = 'POST'>
             <label for="editName">Edit Category:</label>
-            <input type="text" id="editName" name="editName" placeholder="{{category.name}}" required>
+            <input type="text" id="editName" name="editName" placeholder="{{category.name}}">
             <button type="submit">Edit</button>
         </form>
     </body>
