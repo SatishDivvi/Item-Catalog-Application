@@ -8,9 +8,9 @@
             <ul>
                     {% for category in categories %}
                    <li>{{category.name}}</li>
+                   <a href="{{url_for('showItems', category_id = category.id)}}">View Items</a>
                    <a href="{{url_for('editCategory', category_id = category.id)}}">Edit Category</a>
                    {% endfor %}
-                </ul>
-                
+                </ul>  
     </body>
 </html>
