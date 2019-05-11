@@ -9,6 +9,7 @@
                 <ul>
                     {% for item in items %}
                     <li>{{item.id}} {{item.name}}</li>
+                    <a href="{{url_for('editItems', category_id = category.id, item_id = item.id)}}">Edit</a>
                     {% endfor %}
                 </ul>
                 {% else %}
