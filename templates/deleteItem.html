@@ -7,6 +7,7 @@
         <p>Do you want to delete {{item.name}} item?</p>
         <form action="{{url_for('deleteItems', category_id = category_id, item_id = item.id)}}" method = 'POST'>
             <button type="submit">Delete</button>
+            <a href="{{url_for('showItems', category_id = category_id)}}">Cancel</a>
         </form>
     </body>
 </html>
