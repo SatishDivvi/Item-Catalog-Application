@@ -17,7 +17,8 @@ def showCategories():
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
     categories = session.query(Category).all()
-    return render_template('categories.html', categories=categories)
+    items = session.query(Item).order_by(Item.id.desc()).limit(10)
+    return render_template('categories.html', categories=categories, items=items)
 
 
 @app.route('/catalog/new/', methods=['GET', 'POST'])
