@@ -4,12 +4,13 @@
 
     </head>
     <body>
-            <p>{{category.name}} category items</p>
+         <p>{{category.name}} category items</p>
             {% if items != None %}
                 <ul>
                     {% for item in items %}
                     <li>{{item.id}} {{item.name}}</li>
                     <a href="{{url_for('editItems', category_id = category.id, item_id = item.id)}}">Edit</a>
+                    <a href="{{url_for('deleteItems', category_id = category.id, item_id = item.id)}}">Delete</a>
                     {% endfor %}
                 </ul>
                 {% else %}
