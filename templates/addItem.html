@@ -10,8 +10,8 @@
             <input type="text" id="title" name="addTitle" required>
             <label for="description">Add Description:</label>
             <input type="text" id="description" name="addDescription" required>
-            <label for="category">Select Category:</label>
             <button type="submit">Add</button>
+            <a href="{{url_for('showItems', category_id = category.id)}}">Cancel</a>
             </form>
     </body>
 </html>
