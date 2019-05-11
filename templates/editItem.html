@@ -18,6 +18,7 @@
                     <option value="Hockey" id="category">Hockey</option>
                   </select>
                 <button type="submit">Add</button>
+                <a href="{{url_for('showItems', category_id = category.id)}}">Cancel</a>
                 </form>
     </body>
 </html>
