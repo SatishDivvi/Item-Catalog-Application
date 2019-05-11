@@ -4,6 +4,16 @@
 
     </head>
     <body>
-       
+       <p>{{category.name}} category items</p>
+        {% if items != None %}
+            <ul>
+                {% for item in items %}
+                <li>{{item.id}} {{item.name}}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>There are no items available for this category.</p>
+        {% endif %}
+        <a href="{{url_for('addItems', category_id = category.id)}}">Add New Item</a>
     </body>
 </html>
