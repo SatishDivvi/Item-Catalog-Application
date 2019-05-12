@@ -182,7 +182,8 @@ def gdisconnect():
 
 
 @app.route('/fbdisconnect')
-
+def fbdisconnect():
+    return None
 
 
 @app.route('/')
