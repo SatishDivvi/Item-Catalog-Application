@@ -82,7 +82,8 @@ def showItems(category_id):
 
 @app.route('/catalog/<int:category_id>/items/<int:item_id>/')
 def showItemDescription(category_id, item_id):
-    return None
+    DBSession = sessionmaker(bind=engine)
+    session = DBSession()
 
 @app.route('/catalog/<int:category_id>/items/new/', methods=['GET', 'POST'])
 def addItems(category_id):
