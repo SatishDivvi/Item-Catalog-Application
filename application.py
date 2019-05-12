@@ -81,7 +81,8 @@ def showItems(category_id):
     return render_template('showItems.html', category = category, items = items)
 
 @app.route('/catalog/<int:category_id>/items/<int:item_id>/')
-
+def showItemDescription(category_id, item_id):
+    return None
 
 @app.route('/catalog/<int:category_id>/items/new/', methods=['GET', 'POST'])
 def addItems(category_id):
