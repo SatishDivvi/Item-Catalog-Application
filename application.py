@@ -362,6 +362,17 @@ def deleteItems(category_id, item_id):
         return render_template('deleteItem.html', category_id=category_id, item=item)
 
 
+# Create User in Database
+def createUser(login_session):
+    DBSession = sessionmaker(bind=engine)
+    session = DBSession()
+    newUser = Users(name=login_session['username'], email=login_session['email'], picture=login_session['picture'])
+    session.add(newUser)
+    session.commit()
+    user = session.query(Users).filter_by(email=login_session['email']).one()
+    return user.id
+
+
 if __name__ == '__main__':
     app.debug = True
     app.run(host='0.0.0.0', port=5000)
