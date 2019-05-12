@@ -28,6 +28,8 @@
                         <div class="container">
                           <div class="row">
                             <div class="col-sm-6">
+                                <h3 class="text-center">Categories</h3>
+                                <hr>
                                     {% for category in categories %}
                                     <ul class="list-group">
                                       <li class="list-group-item text-light" style="background-color: #563d7c;">
@@ -38,6 +40,8 @@
                                       {% endfor %}
                             </div>
                             <div class="col-sm-6">
+                                <h3 class="text-center">Latest Items Added</h3>
+                                <hr>
                                 <ul class="list-group text-white">
                                     {% for item in items %}
                                   <li class="list-group-item my-1" style="background-color:#b86d29;">{{item.name}}</li>
