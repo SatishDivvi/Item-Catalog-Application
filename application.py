@@ -198,6 +198,8 @@ def fbdisconnect():
     return redirect(url_for('showLogin'))
 
 
+@app.route('/disconnect')
+
 @app.route('/')
 @app.route('/catalog/')
 def showCategories():
