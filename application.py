@@ -25,6 +25,12 @@ Base.metadata.bind = engine
 
 
 @app.route('/login')
+def showLogin():
+    state = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in xrange(32))
+    login_session['state'] = state
+    print(login_session)
+    return render_template('login.html', STATE=state)
+
 
 @app.route('/')
 @app.route('/catalog/')
