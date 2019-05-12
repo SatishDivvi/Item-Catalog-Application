@@ -200,7 +200,10 @@ def fbdisconnect():
 
 @app.route('/disconnect')
 def disconnect():
-    return None
+    if login_session['provider'] == 'google':
+        return redirect(url_for('gdisconnect'))
+    elif login_session['provider'] == 'facebook':
+        return redirect(url_for('fbdisconnect'))
 
 @app.route('/')
 @app.route('/catalog/')
