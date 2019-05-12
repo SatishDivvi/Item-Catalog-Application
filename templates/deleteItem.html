@@ -23,6 +23,7 @@
                         </nav>
                     </div>
                 </header>
+                <section class="pt-5 mt-3 text-dark bg-warning"></section>
         <p>Do you want to delete {{item.name}} item?</p>
         <form action="{{url_for('deleteItems', category_id = category_id, item_id = item.id)}}" method = 'POST'>
             <button type="submit">Delete</button>
