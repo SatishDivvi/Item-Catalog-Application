@@ -24,11 +24,21 @@
                     </div>
                 </header>
                 <section class="pt-5 mt-3 text-dark bg-warning"></section>
-        <p>Do you want to delete {{item.name}} item?</p>
-        <form action="{{url_for('deleteItems', category_id = category_id, item_id = item.id)}}" method = 'POST'>
-            <button type="submit">Delete</button>
-            <a href="{{url_for('showItems', category_id = category_id)}}">Cancel</a>
-        </form>
+                <section class="pt-5" style="background-color:#ffffff;">
+                        <div class="container">
+                                <p class="display-4 text-center">Do you want to delete {{item.name}} item?</p>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                        <form action="{{url_for('deleteItems', category_id = category_id, item_id = item.id)}}" method = 'POST'>
+                                            <div class="text-center">
+                                                <button class="btn btn-danger" type="submit">Delete</button>
+                                                <a class="btn btn-info" href="{{url_for('showItems', category_id = category_id)}}">Cancel</a>
+                                            </div>
+                                            </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
