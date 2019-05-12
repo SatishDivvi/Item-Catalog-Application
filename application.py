@@ -205,6 +205,7 @@ def disconnect():
     elif login_session['provider'] == 'facebook':
         return redirect(url_for('fbdisconnect'))
 
+
 @app.route('/')
 @app.route('/catalog/')
 def showCategories():
