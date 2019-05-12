@@ -258,6 +258,8 @@ def deleteCategory(category_id):
         deleteCategoryItems = session.query(Item).filter_by(catalog_id = category_id).all()
     except Exception:
         pass
+    if "username" not in login_session:
+        return redirect('/login')
     if request.method == 'POST':
         session.delete(deleteCategory)
         session.commit()
