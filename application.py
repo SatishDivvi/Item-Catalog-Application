@@ -316,6 +316,8 @@ def editItems(category_id, item_id):
     session = DBSession()
     category = session.query(Category).filter_by(id=category_id).one()
     item = session.query(Item).filter_by(id=item_id).one()
+    if "username" not in login_session:
+        return redirect('/login')
     if request.method == 'POST':
         select = request.form['category']
         newCategory = session.query(Category).filter_by(name=select).one()
