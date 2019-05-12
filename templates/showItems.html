@@ -34,7 +34,7 @@
                                             {% if items != None %}
                                                 {% for item in items %}
                                                 <div class="list-group">
-                                                <li class="list-group-item list-group-item-secondary"><a class="btn btn-block btn-light font-weight-bold" href="#">{{item.name}}</a></li>
+                                                <li class="list-group-item list-group-item-secondary"><a class="btn btn-block btn-light font-weight-bold" href="{{url_for('showItemDescription', category_id = category.id, item_id = item.id)}}">{{item.name}}</a></li>
                                             </div>
                                             <div class="py-1 text-center">
                                                     <a class="btn btn-warning mx-1" href="{{url_for('editItems', category_id = category.id, item_id = item.id)}}">Edit</a>
