@@ -32,6 +32,23 @@ Item Catalog Application is a Flask powered application which gives below inform
 
 ### OAuth Setup - Google
 
+This section is mandatory for Google+ Signin in order to restrict unauthorized users from adding, deleting or modifying restaurants and their menus. This also provides authentication making users mandatory to sign in for admin privileges:
+
+1. Create Client ID and Client Secret:
+    - Go to [Google Console](https://console.developers.google.com/apis)
+    - Choose **Credentials** from the menu on the left.
+    - Create an **OAuth Client ID**.
+    - Click on **Configure Consent Screen**.
+    - Give a valid name to the application.
+    - Add appropriate javascript origins. For this project it should be `http://localhost:5000` or `http://127.0.0.1:5000`.
+    - Add appropriate javascript redirects. For this project it should be `http://localhost:5000/login` and `http://localhost:5000/gconnect`.
+    - After the consent screen please select **Web application** as the Application Type.
+    - Click on the name of the app and **Client ID**, **Client Secret** can be viewed.
+    - Download JSON file by clicking on **DOWNLOAD JSON** button and name the file as **client_secrets.json**.
+    - Move **client_secrets.json** file to `/vagrant` folder.
+
+    **Note:** *`client_secrets.json` file in this repository is only for you to check on how your json file should look. Please do not use this file as i have removed my `CLIENT_ID` and `CLIENT_SECRET`.*
+
 ### Oauth Setup - Facebook
 
 ### Project Execution:
