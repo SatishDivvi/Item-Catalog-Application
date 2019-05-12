@@ -373,6 +373,14 @@ def createUser(login_session):
     return user.id
 
 
+# Get User Info
+def getUserInfo(user_id):
+    DBSession = sessionmaker(bind=engine)
+    session = DBSession()
+    user = session.query(Users).filter_by(id=user_id).one()
+    return user
+
+
 if __name__ == '__main__':
     app.debug = True
     app.run(host='0.0.0.0', port=5000)
