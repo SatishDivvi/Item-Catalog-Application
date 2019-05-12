@@ -23,6 +23,8 @@
                         </nav>
                     </div>
                 </header>
+                <section class="pt-5 mt-3 text-dark bg-warning"></section>
+                
         <h2>Add New Item for {{category.name}}</h2>
         <form action="{{url_for('addItems', category_id = category.id)}}" method='POST'>
             <label for="title">Add Title:</label>
