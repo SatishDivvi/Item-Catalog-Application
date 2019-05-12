@@ -257,6 +257,7 @@ def editCategory(category_id):
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
     editCategory = session.query(Category).filter_by(id=category_id).one()
+    creator = getUserInfo(editCategory.user_id)
     if "username" not in login_session:
         return redirect('/login')
     if request.method == 'POST':
@@ -266,6 +267,8 @@ def editCategory(category_id):
         flash("Edited Category")
         return redirect(url_for('showCategories'))
     else:
+        if creator.id != login_session['user_id']:
+            return render_template('publicEditCategory.html', category = editCategory)
         return render_template('editCategory.html', category = editCategory)
 
 
