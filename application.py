@@ -332,7 +332,7 @@ def addItems(category_id):
     if "username" not in login_session:
         return redirect('/login')
     if request.method == 'POST':
-        newItem = Item(name=request.form['addTitle'], description=request.form['addDescription'], category_id=category_id)
+        newItem = Item(name=request.form['addTitle'], description=request.form['addDescription'], category_id=category_id, user_id = login_session['user_id'])
         session.add(newItem)
         session.commit()
         flash('Added New Item')
