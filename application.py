@@ -222,6 +222,8 @@ def showCategories():
 def addCategory():
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
+    if "username" not in login_session:
+        return redirect('/login')
     if request.method == 'POST':
         newCategory = Category(name=request.form['addCategory'])
         session.add(newCategory)
