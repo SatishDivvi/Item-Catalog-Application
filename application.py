@@ -350,6 +350,7 @@ def editItems(category_id, item_id):
     session = DBSession()
     category = session.query(Category).filter_by(id=category_id).one()
     item = session.query(Item).filter_by(id=item_id).one()
+    creator = getUserInfo(item.user_id)
     if "username" not in login_session:
         return redirect('/login')
     if request.method == 'POST':
@@ -367,6 +368,9 @@ def editItems(category_id, item_id):
         flash('Updated Requested Item')
         return redirect(url_for('showItems', category_id=item.category_id))
     else:
+        if creator.id != login_session['user_id']:
+            flash('You are not the owner of the category, Hence you are not allowed to edit the item.')
+            return redirect(url_for('showItems', category_id=category_id))
         return render_template('edititem.html', item=item, category=category)
      
 
