@@ -321,7 +321,7 @@ def deleteCategory(category_id):
     try:
         deleteCategoryItems = (
                                 session.query(Item).
-                                filter_by(catalog_id=category_id).all())
+                                filter_by(category_id=category_id).all())
     except Exception:
         pass
     if "username" not in login_session:
@@ -330,8 +330,9 @@ def deleteCategory(category_id):
         session.delete(deleteCategory)
         session.commit()
         try:
-            session.delete(deleteCategoryItems)
-            session.commit()
+            for deleteCategoryItem in deleteCategoryItems:
+                session.delete(deleteCategoryItem)
+                session.commit()
         except Exception:
             pass
         flash("Deleted Category")
