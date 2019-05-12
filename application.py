@@ -25,7 +25,7 @@ Base.metadata.bind = engine
 
 
 @app.route('/catalog/<int:category_id>/items/<int:item_id>/itemjson')
-def getCategorySpecificItemJson(category_id, item_id):
+def getCategorySpecificItemJSON(category_id, item_id):
     return None
 
 @app.route('/login')
