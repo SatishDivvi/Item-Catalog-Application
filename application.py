@@ -84,6 +84,9 @@ def showItems(category_id):
 def showItemDescription(category_id, item_id):
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
+    item = session.query(Item).filter_by(id = item_id).one()
+    return render_template('showDescription.html', item=item, category_id = category_id)
+
 
 @app.route('/catalog/<int:category_id>/items/new/', methods=['GET', 'POST'])
 def addItems(category_id):
