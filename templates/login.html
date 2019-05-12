@@ -81,7 +81,8 @@
                         function checkLoginState() {
                   FB.getLoginStatus(function(response) {
                     if (response.status == 'connected') {
-                      sendTokenToServer(response);
+                        $('#loginSection').attr('style', 'display: none');
+                    sendTokenToServer(response);
                     }
                   })
                 }
