@@ -24,7 +24,7 @@ engine = create_engine('sqlite:///catalog.db')
 Base.metadata.bind = engine
 
 
-@app.route('/catalog/<int:category_id>/items/<int:item_id>/menujson')
+@app.route('/catalog/<int:category_id>/items/<int:item_id>/itemjson')
 
 
 @app.route('/login')
