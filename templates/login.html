@@ -29,7 +29,25 @@
                     </div>
                 </header>
                 <section class="pt-5 mt-3 text-dark bg-warning"></section>
-                
+                <section class="pt-5" style="background-color:#ffffff;">
+                        <div class="container">
+                                <h1 class="display-4 text-center">Catalog - Sign In</h1>
+                                <hr>
+                              <div class="row">
+                                <div class="col text-center">
+                                    <button id="signinButton" class="btn btn-lg btn-outline-danger"><i class="fab fa-google-plus-square"></i> <span>Sign In</span></button>
+                                    <div scope="public_profile,email" class="fb-login-button" data-width="" data-size="medium" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false" onlogin="checkLoginState();"></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="container">
+                                    <div class="row">
+                                      <div class="col">
+                                          <div class="text-center" id="result"></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                </section>
             <script>
                     $('#signinButton').click(function() {
                           function signInCallback(authResult){
