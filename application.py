@@ -268,6 +268,8 @@ def showItems(category_id):
     category = session.query(Category).filter_by(id = category_id).one()
     if len(items) == 0:
         items = None
+    if 'username' not in login_session:
+        return render_template('showPublicItems.html', category=category, items=items)
     return render_template('showItems.html', category = category, items = items)
 
 
