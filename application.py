@@ -238,6 +238,8 @@ def editCategory(category_id):
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
     editCategory = session.query(Category).filter_by(id=category_id).one()
+    if "username" not in login_session:
+        return redirect('/login')
     if request.method == 'POST':
         editCategory.name = request.form['editName']
         session.add(editCategory)
