@@ -21,6 +21,7 @@ class Category(Base):
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(Users)
 
+
 class Item(Base):
     __tablename__ = 'items'
     id = Column(Integer, primary_key=True)
