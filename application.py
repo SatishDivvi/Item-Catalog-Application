@@ -381,6 +381,17 @@ def getUserInfo(user_id):
     return user
 
 
+# Get User ID
+def getUserID(email):
+    DBSession = sessionmaker(bind=engine)
+    session = DBSession()
+    try:
+        user = session.query(Users).filter_by(email=email).one()
+        return user.id
+    except Exception:
+        return None
+
+
 if __name__ == '__main__':
     app.debug = True
     app.run(host='0.0.0.0', port=5000)
