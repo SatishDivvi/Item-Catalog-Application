@@ -112,6 +112,10 @@ def googleconnect():
     return output
 
 
+@app.route('/facebookconnect', methods = ['POST'])
+
+
+
 @app.route('/')
 @app.route('/catalog/')
 def showCategories():
