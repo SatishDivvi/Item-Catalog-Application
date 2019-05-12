@@ -71,7 +71,6 @@
                               });
                             } else{
                               // handle error
-                              console.log('There was an error: ' + authResult['error']);
                               $('#result').html('Failed to make a server-side call. Check your configuration and console.');
                             }
                           }
@@ -82,7 +81,6 @@
                         function checkLoginState() {
                   FB.getLoginStatus(function(response) {
                     if (response.status == 'connected') {
-                      console.log(response);
                       sendTokenToServer(response);
                     }
                   })
@@ -90,10 +88,7 @@
 
                 function sendTokenToServer(response) {
                   var accessToken = response.authResponse.accessToken;
-                  console.log(accessToken);
-                  console.log('Welcome!  Fetching your information.... ');
                   FB.api('/me', function(response) {
-                    console.log('Successful login for: ' + response.name);
                     $.ajax({
                       type: 'POST',
                       url: '/facebookconnect?state={{STATE}}',
