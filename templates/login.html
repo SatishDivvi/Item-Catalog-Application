@@ -19,7 +19,92 @@
                   </script> 
     </head>
     <body>
-        
+            <script>
+                    $('#signinButton').click(function() {
+                          function signInCallback(authResult){
+                            if (authResult['code']){
+                              $('#loginSection').attr('style', 'display: none');
+                              $.ajax({
+                                type: 'POST',
+                                url: '/googleconnect?state={{STATE}}',
+                                headers: {
+                                'X-Requested-With': 'XMLHttpRequest'
+                                },
+                                contentType: 'application/octet-stream; charset=utf-8',
+                                success:function(result){
+                                  $('#result').html('Login Successful!</br>'+ result + '</br>Redirecting...')
+                                       setTimeout(function() {
+                                        window.location.href = "/catalog";
+                                       }, 4000);
+                                },
+                                processData:false,
+                                data:authResult['code']
+                              });
+                            } else{
+                              // handle error
+                              console.log('There was an error: ' + authResult['error']);
+                              $('#result').html('Failed to make a server-side call. Check your configuration and console.');
+                            }
+                          }
+                          auth2.grantOfflineAccess().then(signInCallback);
+                        });
+                      </script>
+                      <script>
+                        function checkLoginState() {
+                  FB.getLoginStatus(function(response) {
+                    if (response.status == 'connected') {
+                      console.log(response);
+                      sendTokenToServer(response);
+                    }
+                  })
+                }
+
+                function sendTokenToServer(response) {
+                  var accessToken = response.authResponse.accessToken;
+                  console.log(accessToken);
+                  console.log('Welcome!  Fetching your information.... ');
+                  FB.api('/me', function(response) {
+                    console.log('Successful login for: ' + response.name);
+                    $.ajax({
+                      type: 'POST',
+                      url: '/facebookconnect?state={{STATE}}',
+                      processData: false,
+                      data: accessToken,
+                      contentType: 'application/octet-stream; charset=ytf-8',
+                      success: function(result) {
+                        if(result) {
+                          $('#result').html('Login Successful!</br>'+ result + '</br>Redirecting...')
+                               setTimeout(function() {
+                                window.location.href = "/catalog";
+                               }, 4000);
+                        } else {
+                          $('#result').html('Failed to make a server-side call. Check your configuration and console.');
+                        }
+                        
+                      }
+                    });
+                  });
+                };
+                      window.fbAsyncInit = function() {
+                  FB.init({
+                    appId      : '573461673063558',
+                    cookie     : true,  // enable cookies to allow the server to access 
+                                      // the session
+                    xfbml      : true,  // parse social plugins on this page
+                    version    : 'v3.3' // The Graph API version to use for the call
+                  });
+                  };
+
+                // Load the SDK asynchronously
+                (function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (d.getElementById(id)) return;
+                  js = d.createElement(s); js.id = id;
+                  js.src = "https://connect.facebook.net/en_US/sdk.js";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+                      </script>
+                    
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
