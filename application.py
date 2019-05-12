@@ -157,6 +157,8 @@ def facebookconnect():
     return output
 
 
+@app.route('/gdisconnect')
+
 @app.route('/')
 @app.route('/catalog/')
 def showCategories():
