@@ -340,6 +340,8 @@ def deleteItems(category_id, item_id):
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
     item = session.query(Item).filter_by(id=item_id, category_id=category_id).one()
+    if "username" not in login_session:
+        return redirect('/login')
     if request.method == 'POST':
         session.delete(item)
         session.commit()
