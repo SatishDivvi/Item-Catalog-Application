@@ -268,7 +268,8 @@ def editCategory(category_id):
         return redirect(url_for('showCategories'))
     else:
         if creator.id != login_session['user_id']:
-            return render_template('publicEditCategory.html', category = editCategory)
+            flash('Sorry, you are not the owner of the category to edit.')
+            return redirect('/catalog')
         return render_template('editCategory.html', category = editCategory)
 
 
