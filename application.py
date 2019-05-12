@@ -113,7 +113,8 @@ def googleconnect():
 
 
 @app.route('/facebookconnect', methods = ['POST'])
-
+def facebookconnect():
+    return None
 
 
 @app.route('/')
