@@ -181,6 +181,10 @@ def gdisconnect():
         return response
 
 
+@app.route('/fbdisconnect')
+
+
+
 @app.route('/')
 @app.route('/catalog/')
 def showCategories():
