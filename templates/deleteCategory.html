@@ -24,11 +24,21 @@
                     </div>
                 </header>
                 <section class="pt-5 mt-3 text-dark bg-warning"></section>
-        <form action="{{url_for('deleteCategory', category_id=category.id)}}" method = 'POST'>
-            <p>Are you sure you want to delete {{category.name}} category?</p>
-            <button type="submit">Delete</button>
-            <a href="{{url_for('showCategories')}}">Cancel</a>
-        </form>
+               <section class="pt-5" style="background-color:#ffffff;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 text-center">
+                                <form action="{{url_for('deleteCategory', category_id=category.id)}}" method = 'POST'>
+                                    <div class="form-group text-center">
+                                            <p style="font-size:2rem;">Are you sure you want to delete {{category.name}} category?</p>
+                                    </div>
+                                        <button class="btn btn-danger" type="submit">Delete</button>
+                                        <a class="btn btn-info" href="{{url_for('showCategories')}}">Cancel</a>
+                                    </form>
+                        </div>
+                    </div>
+                </div>
+                </section>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
