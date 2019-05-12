@@ -33,7 +33,8 @@ def showLogin():
 
 
 @app.route('/googleconnect', methods=['POST'])
-
+def googleconnect():
+    return None
 
 
 @app.route('/')
