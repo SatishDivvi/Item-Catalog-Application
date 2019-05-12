@@ -24,6 +24,9 @@ engine = create_engine('sqlite:///catalog.db')
 Base.metadata.bind = engine
 
 
+@app.route('/catalog/<int:category_id>/items/<int:item_id>/menujson')
+
+
 @app.route('/login')
 def showLogin():
     if 'username' in login_session:
