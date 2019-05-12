@@ -26,7 +26,11 @@ Base.metadata.bind = engine
 
 @app.route('/catalog/<int:category_id>/items/<int:item_id>/itemjson')
 def getCategorySpecificItemJSON(category_id, item_id):
-    return None
+    DBSession = sessionmaker(bind=engine)
+    session = DBSession()
+    item = session.query(Item).filter_by(id=item_id, category_id=category_id).one()
+    return jsonify(Item=[item.serialize])
+
 
 @app.route('/login')
 def showLogin():
