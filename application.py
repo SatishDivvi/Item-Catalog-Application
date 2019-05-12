@@ -299,6 +299,8 @@ def addItems(category_id):
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
     category = session.query(Category).filter_by(id=category_id).one()
+    if "username" not in login_session:
+        return redirect('/login')
     if request.method == 'POST':
         newItem = Item(name=request.form['addTitle'], description=request.form['addDescription'], category_id=category_id)
         session.add(newItem)
