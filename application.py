@@ -328,6 +328,7 @@ def addItems(category_id):
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
     category = session.query(Category).filter_by(id=category_id).one()
+    creator = getUserInfo(category.user_id)
     if "username" not in login_session:
         return redirect('/login')
     if request.method == 'POST':
@@ -337,6 +338,9 @@ def addItems(category_id):
         flash('Added New Item')
         return redirect(url_for('showItems', category_id=category.id))
     else:
+        if creator.id != login_session['user_id']:
+            flash('You are not the owner of the category, Hence you are not allowed to add items to it.')
+            return redirect(url_for('showItems', category_id=category_id))
         return render_template('addItem.html', category=category)
 
 
