@@ -51,6 +51,27 @@ This section is mandatory for Google+ Signin in order to restrict unauthorized u
 
 ### Oauth Setup - Facebook
 
+This section is mandatory for Facebook Signin in order to restrict unauthorized users from adding, deleting or modifying restaurants and their menus. This also provides authentication making users mandatory to sign in for admin privileges:
+
+1. Create App ID and App Secret:
+    - Go to [Facebook Developers](https://developers.facebook.com/)
+    - Sign in using your facebook account. **Note:** _If you don't have facebook account, you can create one at [Facebook Signup](https://www.facebook.com/)_
+    - Click on **Add New App**.
+    - Give App a name and click on **Create App ID**.
+    - Go to `Settings\Basic`.
+    - Go to **Add Platform** Section and select the app type as **website**.
+    - Enter the site URL as `http://localhost:5000` and click on **Save Changes**.
+    - Click on the `App Name` Dropdown on the top left pane.
+    - Create Test App by clicking on **Creat Test App**. **Note:** _This step is mandatory as Facebook stopped supporting http protocol and only test apps support http protocol_
+    - Your **App ID** and **App Secret** are created and can be viewed now. Create `fb_client_secrets.json` file or use the file available for reference in this repository and replace with your **App ID** and **App Secret**.
+    
+    Below are couple of resources i am sharing for your references:
+    1. [loginbutton](https://developers.facebook.com/docs/facebook-login/web/#loginbutton)
+    2. [redirecturl](https://developers.facebook.com/docs/facebook-login/web/#redirecturl)
+    3. [loginsettings](https://developers.facebook.com/apps/408172529765462/fb-login/settings/)
+    4. [accesstokens](https://developers.facebook.com/docs/facebook-login/web/accesstokens)
+    5. [permissions](https://developers.facebook.com/docs/facebook-login/web/permissions)
+
 ### Project Execution:
 
 ### Screenshots:
