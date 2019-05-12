@@ -1,6 +1,6 @@
 #!/usr/bin/env python2
 
-from flask import Flask, render_template, request, url_for, redirect, flash
+from flask import Flask, render_template, request, url_for, redirect, flash, jsonify
 from database_setup import Category, Item, Base, Users
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
