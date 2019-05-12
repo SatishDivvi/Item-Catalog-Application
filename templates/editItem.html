@@ -23,6 +23,7 @@
                 </nav>
             </div>
         </header>
+        <section class="pt-5 mt-3 text-dark bg-warning"></section>
         <p>Edit {{item.name}} item:</p>
         <form action="{{url_for('editItems', item_id = item.id, category_id = category.id)}}" method='POST'>
                 <label for="title">Edit Title:</label>
