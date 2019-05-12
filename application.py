@@ -110,6 +110,7 @@ def googleconnect():
     output += '<img src="'
     output += login_session['picture']
     output += ' " style = "width: 300px; height: 300px;border-radius: 150px;-webkit-border-radius: 150px;-moz-border-radius: 150px;"> '
+    flash("you are now logged in as {}".format(login_session['username']))
     return output
 
 
@@ -155,6 +156,7 @@ def facebookconnect():
     output += '<img src="'
     output += login_session['picture']
     output += ' " style = "width: 300px; height: 300px;border-radius: 150px;-webkit-border-radius: 150px;-moz-border-radius: 150px;"> '
+    flash("you are now logged in as {}".format(login_session['username']))
     return output
 
 
@@ -175,6 +177,7 @@ def gdisconnect():
         del login_session['username']
         del login_session['email']
         del login_session['picture']
+        flash('You are disconnected successfully')
         return redirect(url_for('showLogin'))
     else:
         response = make_response(json.dumps('Failed to revoke token for given user.', 400))
@@ -195,6 +198,7 @@ def fbdisconnect():
     del login_session['provider']
     del login_session['picture']
     del login_session['facebook_id']
+    flash('You are disconnected successfully')
     return redirect(url_for('showLogin'))
 
 
