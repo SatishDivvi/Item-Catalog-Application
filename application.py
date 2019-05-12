@@ -158,6 +158,9 @@ def facebookconnect():
 
 
 @app.route('/gdisconnect')
+def gdisconnect():
+    return None
+
 
 @app.route('/')
 @app.route('/catalog/')
