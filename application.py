@@ -16,6 +16,8 @@ import json
 from flask import make_response
 import requests
 
+CLIENT_ID = json.loads(open('client_secrets.json', 'r').read())['web']['client_id']
+
 app = Flask(__name__)
 
 engine = create_engine('sqlite:///catalog.db')
