@@ -199,6 +199,8 @@ def fbdisconnect():
 
 
 @app.route('/disconnect')
+def disconnect():
+    return None
 
 @app.route('/')
 @app.route('/catalog/')
