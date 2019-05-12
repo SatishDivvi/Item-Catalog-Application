@@ -189,6 +189,7 @@ def gdisconnect():
         del login_session['username']
         del login_session['email']
         del login_session['picture']
+        del login_session['user_id']
         flash('You are disconnected successfully')
         return redirect(url_for('showLogin'))
     else:
@@ -210,6 +211,7 @@ def fbdisconnect():
     del login_session['provider']
     del login_session['picture']
     del login_session['facebook_id']
+    del login_session['user_id']
     flash('You are disconnected successfully')
     return redirect(url_for('showLogin'))
 
