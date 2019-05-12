@@ -278,6 +278,7 @@ def deleteCategory(category_id):
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
     deleteCategory = session.query(Category).filter_by(id=category_id).first()
+    creator = getUserInfo(deleteCategory.user_id)
     try:
         deleteCategoryItems = session.query(Item).filter_by(catalog_id = category_id).all()
     except Exception:
@@ -295,6 +296,9 @@ def deleteCategory(category_id):
         flash("Deleted Category")
         return redirect(url_for('showCategories'))
     else:
+        if creator.id != login_session['user_id']:
+            flash('Sorry, you are not the owner of the category to delete.')
+            return redirect('/catalog')
         return render_template('deleteCategory.html', category = deleteCategory)
 
 
