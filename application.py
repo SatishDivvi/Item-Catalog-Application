@@ -232,6 +232,7 @@ def addCategory():
         newCategory = Category(name=request.form['addCategory'])
         session.add(newCategory)
         session.commit()
+        flash("Added New Category")
         return redirect(url_for('showCategories'))
     else:
         return render_template('addCategory.html')
@@ -248,6 +249,7 @@ def editCategory(category_id):
         editCategory.name = request.form['editName']
         session.add(editCategory)
         session.commit()
+        flash("Edited Category")
         return redirect(url_for('showCategories'))
     else:
         return render_template('editCategory.html', category = editCategory)
@@ -272,6 +274,7 @@ def deleteCategory(category_id):
             session.commit()
         except Exception:
             pass
+        flash("Deleted Category")
         return redirect(url_for('showCategories'))
     else:
         return render_template('deleteCategory.html', category = deleteCategory)
@@ -309,6 +312,7 @@ def addItems(category_id):
         newItem = Item(name=request.form['addTitle'], description=request.form['addDescription'], category_id=category_id)
         session.add(newItem)
         session.commit()
+        flash('Added New Item')
         return redirect(url_for('showItems', category_id=category.id))
     else:
         return render_template('addItem.html', category=category)
@@ -334,6 +338,7 @@ def editItems(category_id, item_id):
         if request.form['editDescription']:
             item.description = request.form['editDescription']
             session.commit()
+        flash('Updated Requested Item')
         return redirect(url_for('showItems', category_id=item.category_id))
     else:
         return render_template('edititem.html', item=item, category=category)
@@ -349,6 +354,7 @@ def deleteItems(category_id, item_id):
     if request.method == 'POST':
         session.delete(item)
         session.commit()
+        flash('Deleted Requested Item')
         return redirect(url_for('showItems', category_id=category_id))
     else:
         return render_template('deleteItem.html', category_id=category_id, item=item)
