@@ -24,6 +24,8 @@ engine = create_engine('sqlite:///catalog.db')
 Base.metadata.bind = engine
 
 
+@app.route('/login')
+
 @app.route('/')
 @app.route('/catalog/')
 def showCategories():
