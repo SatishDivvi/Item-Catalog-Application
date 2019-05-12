@@ -183,7 +183,21 @@ def gdisconnect():
 
 @app.route('/fbdisconnect')
 def fbdisconnect():
-    return None
+    """Delete the login session and disconnect using Facebook OAuth"""
+    facebook_id = login_session['facebook_id']
+    access_token = login_session['access_token']
+    if 'provider' not in login_session:
+        return redirect(url_for('gdisconnect'))
+    url = 'https://graph.facebook.com/%s/permissions?access_token=%s' % (facebook_id, access_token)
+    h = httplib2.Http()
+    result = h.request(url, 'DELETE')[1]
+    del login_session['username']
+    del login_session['email']
+    del login_session['provider']
+    del login_session['picture']
+    # del login_session['user_id']
+    del login_session['facebook_id']
+    return redirect(url_for('showLogin'))
 
 
 @app.route('/')
