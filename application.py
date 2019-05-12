@@ -80,12 +80,13 @@ def showItems(category_id):
         items = None
     return render_template('showItems.html', category = category, items = items)
 
+
 @app.route('/catalog/<int:category_id>/items/<int:item_id>/')
 def showItemDescription(category_id, item_id):
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
     item = session.query(Item).filter_by(id = item_id).one()
-    return render_template('showDescription.html', item=item, category_id = category_id)
+    return render_template('showDescription.html', item=item, category_id=category_id)
 
 
 @app.route('/catalog/<int:category_id>/items/new/', methods=['GET', 'POST'])
@@ -97,9 +98,9 @@ def addItems(category_id):
         newItem = Item(name=request.form['addTitle'], description=request.form['addDescription'], category_id=category_id)
         session.add(newItem)
         session.commit()
-        return redirect(url_for('showItems', category_id = category.id))
+        return redirect(url_for('showItems', category_id=category.id))
     else:
-        return render_template('addItem.html', category = category)
+        return render_template('addItem.html', category=category)
 
 
 @app.route('/catalog/<int:category_id>/items/<int:item_id>/edit', methods=['GET', 'POST'])
@@ -122,7 +123,7 @@ def editItems(category_id, item_id):
             session.commit()
         return redirect(url_for('showItems', category_id=item.category_id))
     else:
-        return render_template('edititem.html', item = item, category = category)
+        return render_template('edititem.html', item=item, category=category)
      
 
 @app.route('/catalog/<int:category_id>/items/<int:item_id>/delete', methods=['GET', 'POST'])
@@ -133,9 +134,9 @@ def deleteItems(category_id, item_id):
     if request.method == 'POST':
         session.delete(item)
         session.commit()
-        return redirect(url_for('showItems', category_id = category_id))
+        return redirect(url_for('showItems', category_id=category_id))
     else:
-        return render_template('deleteItem.html', category_id = category_id, item = item)
+        return render_template('deleteItem.html', category_id=category_id, item=item)
 
 
 if __name__ == '__main__':
