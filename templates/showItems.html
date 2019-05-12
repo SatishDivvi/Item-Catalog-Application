@@ -26,11 +26,11 @@
                 <section class="pt-5 mt-3 text-dark bg-warning"></section>
                 <section class="pt-5" style="background-color:#ffffff;">
                         <div class="container">
-                                <a class="btn btn-success btn-block" href="{{url_for('addItems', category_id = category.id)}}">Add New Item</a>
                                 <p class="display-4 text-center">{{category.name}} Items</p>
                                 <hr>
                             <div class="row">
                                 <div class="col-md-6 offset-md-3">
+                                        <a class="btn btn-success btn-block mb-2" href="{{url_for('addItems', category_id = category.id)}}">Add New Item</a>
                                             {% if items != None %}
                                                 {% for item in items %}
                                                 <div class="list-group">
