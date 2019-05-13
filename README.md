@@ -90,7 +90,8 @@ This section is mandatory for Facebook Signin in order to restrict unauthorized 
 
     **Note:** _Currently host has been configured as `0.0.0.0` in `application.py` which means the server will be able to reach to all ipv4 addresses in your local machine._
 
-
 ### Screenshots:
 
 ### Author
+
+Divvi Naga Venkata Satish - [Portfolio](https://satishdivvi.github.io)
