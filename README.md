@@ -92,6 +92,8 @@ This section is mandatory for Facebook Signin in order to restrict unauthorized 
 
 ### Screenshots:
 
+![Screenshot](/images/Add-New-Category.PNG)
+
 ### Author
 
 Divvi Naga Venkata Satish - [Portfolio](https://satishdivvi.github.io)
