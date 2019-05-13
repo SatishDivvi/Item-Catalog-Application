@@ -262,6 +262,8 @@ def showCategories():
     session = DBSession()
     categories = session.query(Category).all()
     items = session.query(Item).order_by(Item.id.desc()).limit(10)
+    if len(categories) == 0:
+        categories = None
     if 'username' not in login_session:
         return render_template(
                                 'publicCategories.html',
