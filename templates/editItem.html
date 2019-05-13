@@ -41,11 +41,10 @@
                         <div class="form-group">
                             <label for="category">Select Category:</label>
                             <select name="category" class="form-control" required>
-                                <option value="Soccer" id="category">Soccer</option>
-                                <option value="Football" id="category">Football</option>
-                                <option value="Snowboarding" id="category">Snowboarding</option>
-                                <option value="Hockey" id="category">Hockey</option>
-                              </select>
+                                    {% for category in distinctCategories %}
+                                    <option value="{{category.name}}" id="category">{{category.name}}</option>
+                                  {% endfor %}
+                                  </select>
                         </div>
                         <button class="btn btn-warning" type="submit">Edit</button>
                         <a class="btn btn-info" href="{{url_for('showItems', category_id = category.id)}}">Cancel</a>
