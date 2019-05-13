@@ -74,6 +74,23 @@ This section is mandatory for Facebook Signin in order to restrict unauthorized 
 
 ### Project Execution:
 
+ - Setup Database and feed data into the database:
+    - Execute below commands in the same order and wait for each command to complete execution:
+
+        ```python
+        python database_setup.py
+        python add_categories_and_items.py
+        ```
+    
+    **Note:** _You can add more categories and items in `add_categories_and_items.py` file._
+
+- Execute command `python application.py` and with this server is now running at **localhost 5000**.
+- Open your favorite browser and enter `http://localhost:5000` or `http://localhost:127.0.0.1:5000`
+- **Item Catalog Application** is now live.
+
+    **Note:** _Currently host has been configured as `0.0.0.0` in `application.py` which means the server will be able to reach to all ipv4 addresses in your local machine._
+
+
 ### Screenshots:
 
 ### Author
