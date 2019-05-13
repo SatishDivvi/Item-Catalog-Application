@@ -27,8 +27,10 @@ engine = create_engine('sqlite:///catalog.db')
 Base.metadata.bind = engine
 
 
+# Route for Specific Category Item API Endpoint
 @app.route('/catalog/<int:category_id>/items/<int:item_id>/itemjson')
 def getCategorySpecificItemJSON(category_id, item_id):
+    '''Returns specific Category Item in JSON format'''
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
     item = session.query(Item).filter_by(
@@ -37,8 +39,11 @@ def getCategorySpecificItemJSON(category_id, item_id):
     return jsonify(Item=[item.serialize])
 
 
+# Route for logging into the application
 @app.route('/login')
 def showLogin():
+    '''Creates state variable and assigns to login_session variable
+    and returns login.html'''
     if 'username' in login_session:
         return redirect('/catalog')
     state = (
@@ -249,6 +254,8 @@ def fbdisconnect():
 
 @app.route('/disconnect')
 def disconnect():
+    '''Base disconnect Module for routing to appropriate
+    social disconnect'''
     if login_session['provider'] == 'google':
         return redirect(url_for('gdisconnect'))
     elif login_session['provider'] == 'facebook':
@@ -258,6 +265,7 @@ def disconnect():
 @app.route('/')
 @app.route('/catalog/')
 def showCategories():
+    '''Display's categories and last 10 added items'''
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
     categories = session.query(Category).all()
@@ -277,6 +285,8 @@ def showCategories():
 
 @app.route('/catalog/new/', methods=['GET', 'POST'])
 def addCategory():
+    '''Add's new category to the Category Table and
+    redirects to /catalog route.'''
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
     if "username" not in login_session:
@@ -295,6 +305,8 @@ def addCategory():
 
 @app.route('/catalog/<int:category_id>/edit/', methods=['GET', 'POST'])
 def editCategory(category_id):
+    '''Edit existing category and
+    redirects to /catalog route.'''
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
     editCategory = session.query(Category).filter_by(id=category_id).one()
@@ -431,7 +443,11 @@ def editItems(category_id, item_id):
             flash("""You are not the owner of the category,
             Hence you are not allowed to edit the item.""")
             return redirect(url_for('showItems', category_id=category_id))
-        return render_template('edititem.html', item=item, category=category, distinctCategories=distinctCategories)
+        return render_template(
+                                'edititem.html',
+                                item=item,
+                                category=category,
+                                distinctCategories=distinctCategories)
 
 
 @app.route(
