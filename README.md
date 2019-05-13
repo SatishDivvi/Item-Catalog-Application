@@ -79,8 +79,10 @@ This section is mandatory for Facebook Signin in order to restrict unauthorized 
 
         ```python
         python database_setup.py
-        python add_categories_and_items.py
+        python add_categories_and_items.py 
         ```
+    
+    - After above setup run command `./application.py`. **Additional Note (In case of error)**: _Import module `dos2unix` and convert `application.py` file by executing command `dos2unix application.py`. Now again run `./application.py` and server should be up and running._
     
     **Note:** _You can add more categories and items in `add_categories_and_items.py` file._
 
