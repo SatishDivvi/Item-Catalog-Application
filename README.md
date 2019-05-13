@@ -82,11 +82,12 @@ This section is mandatory for Facebook Signin in order to restrict unauthorized 
         python add_categories_and_items.py 
         ```
     
-    - After above setup run command `./application.py`. **Additional Note (In case of error)**: _Import module `dos2unix` and convert `application.py` file by executing command `dos2unix application.py`. Now again run `./application.py` and server should be up and running._
-    
     **Note:** _You can add more categories and items in `add_categories_and_items.py` file._
 
-- Execute command `python application.py` and with this server is now running at **localhost 5000**.
+- Execute command `python application.py` and with this server is now running at **localhost 5000**. 
+
+    **Additional Note (In case of error)**: _Import module `dos2unix` and convert `application.py` file by executing command `dos2unix application.py`. Now again run `./application.py` and server should be up and running._
+    
 - Open your favorite browser and enter `http://localhost:5000` or `http://localhost:127.0.0.1:5000`
 - **Item Catalog Application** is now live.
 
