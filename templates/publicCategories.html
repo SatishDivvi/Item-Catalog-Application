@@ -30,6 +30,7 @@
                             <div class="col-sm-6">
                                 <h3 class="text-center">Categories</h3>
                                 <hr>
+                                {%if categories != None %}
                                     {% for category in categories %}
                                     <ul class="list-group">
                                       <li class="list-group-item text-light" style="background-color: #563d7c;">
@@ -38,6 +39,9 @@
                                     </ul>
                                       <a class="btn btn-info my-1" href="{{url_for('showItems', category_id = category.id)}}">View Items</a>
                                       {% endfor %}
+                                      {% else %}
+                        <p class="bg-warning font-weight-bold text-center" style="font-size:1rem;">There are no categories available. Please login to add category</p>
+                        {% endif %}
                             </div>
                             <div class="col-sm-6">
                                 <h3 class="text-center">Latest Items Added</h3>
