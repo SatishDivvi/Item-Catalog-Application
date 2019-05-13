@@ -93,42 +93,55 @@ This section is mandatory for Facebook Signin in order to restrict unauthorized 
 ### Screenshots:
 
 1. Login/Registration
+
 ![Login](/images/Item-Catalog-login-Page.PNG)
 
 2. Public Home Page
+
 ![PublicHomePage](/images/Item-Catalog-Home-Page-Non-Login.PNG)
 
 3. Public Items page
+
 ![PublicItemsPage](/images/Item-Catalog-Items-Page-Non-Login.PNG)
 
 4. Authenticated Home Page
+
 ![AuthenticatedHomePage](/images/Item-Catalog-Home-Page-Logged-In.PNG)
 
 5. Authenticated Items Page
+
 ![AuthenticatedItemsPage](/images/Item-Catalog-Items-Page-Logged-In.PNG)
 
 6. Add New Category Page
+
 ![NewCategory](/images/Add-New-Category.PNG)
 
 7. Edit Categary Page
+
 ![EditCategory](/images/Edit-Category.PNG)
 
 8. Delete Category Page
+
 ![DeleteCategory](/images/Delete-Category.PNG)
 
 9. Add New Item Page
+
 ![NewItem](/images/Add-New-Item.PNG)
 
 10. Edit Item Page
+
 ![EditItem](/images/Edit-Item.PNG)
 
 11. Delete Item Page
+
 ![DeleteItem](/images/Delete-Item.PNG)
 
 12. Logout
+
 ![Logout](/images/successful-disconnect.PNG)
 
 13. Specific Category Item API Endpoint
+
 ![APIEndpoint](/images/Specific-Item-JSON-API-Endpoint.PNG)
 
 ### Author
