@@ -32,7 +32,7 @@ Item Catalog Application is a Flask powered application which gives below inform
 
 ### OAuth Setup - Google
 
-This section is mandatory for Google+ Signin in order to restrict unauthorized users from adding, deleting or modifying restaurants and their menus. This also provides authentication making users mandatory to sign in for admin privileges:
+This section is mandatory for Google+ Signin in order to restrict unauthorized users from adding, deleting or modifying Categories and their Items. This also provides authentication making users mandatory to sign in for admin privileges:
 
 1. Create Client ID and Client Secret:
     - Go to [Google Console](https://console.developers.google.com/apis)
@@ -51,7 +51,7 @@ This section is mandatory for Google+ Signin in order to restrict unauthorized u
 
 ### Oauth Setup - Facebook
 
-This section is mandatory for Facebook Signin in order to restrict unauthorized users from adding, deleting or modifying restaurants and their menus. This also provides authentication making users mandatory to sign in for admin privileges:
+This section is mandatory for Facebook Signin in order to restrict unauthorized users from adding, deleting or modifying Categories and their Items. This also provides authentication making users mandatory to sign in for admin privileges:
 
 1. Create App ID and App Secret:
     - Go to [Facebook Developers](https://developers.facebook.com/)
